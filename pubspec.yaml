@@ -27,6 +27,7 @@ dependencies:
   url_launcher:
   shared_preferences:
   http:
+  dynamic_theme:
 
 flutter_icons:
   android: "launcher_icon" 

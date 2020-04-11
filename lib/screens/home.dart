@@ -3,6 +3,7 @@ import 'package:covid_19/components/info_panel.dart';
 import 'package:covid_19/components/mostaffectedcountries.dart';
 import 'package:covid_19/components/worldwidepanel.dart';
 import 'package:covid_19/screens/all_countries.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_19/datasource.dart';
 import 'package:http/http.dart' as http;
@@ -44,6 +45,19 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("COVID-19 TRACKER"),
         centerTitle: false,
+        actions: <Widget>[
+          IconButton(
+            icon: Theme.of(context).brightness == Brightness.light
+                ? Icon(Icons.lightbulb_outline)
+                : Icon(Icons.highlight),
+            onPressed: () {
+              DynamicTheme.of(context).setBrightness(
+                  Theme.of(context).brightness == Brightness.light
+                      ? Brightness.dark
+                      : Brightness.light);
+            },
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -90,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        color: primaryBlack,
+                        color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.grey[800],
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Text(
@@ -134,27 +148,27 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                    child: Container(
-                      padding: EdgeInsets.all(10.0),
-                      margin: EdgeInsets.only(right: 10.0),
-                      decoration: BoxDecoration(
-                        color: primaryBlack,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Text(
-                        "SEE ALL",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                  child: Container(
+                    padding: EdgeInsets.all(10.0),
+                    margin: EdgeInsets.only(right: 10.0),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.grey[800],
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Text(
+                      "SEE ALL",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
+                  ),
                 )
               ],
             ),
             countriesData == null
-                ?  CircularProgressIndicator()
+                ? Center(child: CircularProgressIndicator())
                 : MostAffected(countriesData: countriesData),
             InfoPanel(),
             SizedBox(
@@ -164,7 +178,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 "WE ARE TOGETHER IN THE FIGHT",
                 style: TextStyle(
-                  color: primaryBlack,
+                  color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.white70,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
                 ),
