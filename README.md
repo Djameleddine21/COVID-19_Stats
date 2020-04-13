@@ -1,16 +1,23 @@
 # covid_19
 
-A new Flutter project.
+This is a Flutter App about Corona virus stats in the world.
+- The App support two modes (Dark and light)
+- Search Option also is avalaible
 
-## Getting Started
+## Download The App
 
-This project is a starting point for a Flutter application.
+The App is not available in Playstore(because they bloc anything about corona virus),so i release this web site to download it (also the web site is open source[link](https://github.com/Djameleddine21/COVID-19-site))
 
-A few resources to get you started if this is your first Flutter project:
+link to download for Android : [https://co19-stats.netlify.com](https://co19-stats.netlify.com)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Some sccren shots
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![home page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg | width=100)
+![Countries page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/03.jpg | width=100)
+![search page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/07.jpg | width=100)
+![FAQs page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/08.jpg | width=100)
+![home page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/02.jpg | width=100)
+![search page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg | width=100)
+
+### API
+for the api i'm used [https://corona.lmao.ninja](https://corona.lmao.ninja)

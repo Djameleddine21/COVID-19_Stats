@@ -1,10 +1,30 @@
 import 'package:covid_19/screens/search.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class AllCountries extends StatelessWidget {
-  final List countriesData;
+class AllCountries extends StatefulWidget {
+  List countriesData;
 
-  const AllCountries({Key key, @required this.countriesData}) : super(key: key);
+  AllCountries({Key key, @required this.countriesData}) : super(key: key);
+
+  @override
+  _AllCountriesState createState() => _AllCountriesState();
+}
+
+class _AllCountriesState extends State<AllCountries> {
+  bool byOrder = true;
+  getCountriesDataByCases(List l) async {
+    http.Response response =
+        await http.get('https://corona.lmao.ninja/countries?sort=cases');
+    widget.countriesData = json.decode(response.body);
+  }
+
+  getCountriesDataOrder(List l) async {
+    http.Response response =
+        await http.get('https://corona.lmao.ninja/countries');
+    widget.countriesData = json.decode(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +33,32 @@ class AllCountries extends StatelessWidget {
         title: Text("Country Stats"),
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.search, size: 35.0, color: Colors.white38),
-              onPressed: (){
-                showSearch(context: context, delegate: Search(countriesData));
-              })
+            icon: Icon(Icons.search, size: 35.0, color: Colors.white38),
+            onPressed: () {
+              showSearch(
+                  context: context, delegate: Search(widget.countriesData));
+            },
+          ),
+          // IconButton(
+          //   icon: Icon(Icons.sort, size: 35.0, color: Colors.white38),
+          //   onPressed: () {
+          //     byOrder = !byOrder;
+          //     if (byOrder) {
+          //       getCountriesDataOrder(widget.countriesData);
+          //     } else {
+          //       getCountriesDataByCases(widget.countriesData);
+          //     }
+          //     setState(() {});
+          //   },
+          // ),
         ],
       ),
-      body: countriesData == null
+      body: widget.countriesData == null
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
-              itemCount: countriesData == null ? 0 : countriesData.length,
+              itemCount: widget.countriesData == null
+                  ? 0
+                  : widget.countriesData.length,
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.symmetric(vertical: 8.0),
@@ -48,11 +84,12 @@ class AllCountries extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              countriesData[index]['country'],
+                              widget.countriesData[index]['country'],
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             Image.network(
-                              countriesData[index]['countryInfo']['flag'],
+                              widget.countriesData[index]['countryInfo']
+                                  ['flag'],
                               height: 50.0,
                               width: 60.0,
                             ),
@@ -65,27 +102,30 @@ class AllCountries extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "CONFIRMED : " +
-                                countriesData[index]['cases'].toString(),
+                                widget.countriesData[index]['cases'].toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, color: Colors.red),
                           ),
                           Text(
                             "ACTIVE : " +
-                                countriesData[index]['active'].toString(),
+                                widget.countriesData[index]['active']
+                                    .toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue),
                           ),
                           Text(
                             "RECOVERED : " +
-                                countriesData[index]['recovered'].toString(),
+                                widget.countriesData[index]['recovered']
+                                    .toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.green),
                           ),
                           Text(
                             "DEATHS : " +
-                                countriesData[index]['deaths'].toString(),
+                                widget.countriesData[index]['deaths']
+                                    .toString(),
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context).brightness ==
