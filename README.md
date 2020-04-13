@@ -12,12 +12,12 @@ link to download for Android : [https://co19-stats.netlify.com](https://co19-sta
 
 ## Some sccren shots
 
-![home page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg)
-![Countries page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/03.jpg)
-![search page light mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/07.jpg)
-![FAQs page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/08.jpg)
-![home page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/02.jpg)
-![search page dark mode](https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg)
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg" alt="home page light mode" height="500" width="350">
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/03.jpg" alt="Countries page light mode" height="500" width="350">
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/07.jpg" alt="search page light mode" height="500" width="350"><br>
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/08.jpg" alt="FAQs page dark mode" height="500" width="350">
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/02.jpg" alt="home page dark mode" height="500" width="350">
+<img src="https://github.com/Djameleddine21/COVID-19-site/blob/master/img/01.jpg" alt="search page dark mode" height="500" width="350">
 
 ### API
 for the api i'm used [https://corona.lmao.ninja](https://corona.lmao.ninja)
