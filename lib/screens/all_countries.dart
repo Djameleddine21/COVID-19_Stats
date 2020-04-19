@@ -13,19 +13,6 @@ class AllCountries extends StatefulWidget {
 }
 
 class _AllCountriesState extends State<AllCountries> {
-  bool byOrder = true;
-  getCountriesDataByCases(List l) async {
-    http.Response response =
-        await http.get('https://corona.lmao.ninja/countries?sort=cases');
-    widget.countriesData = json.decode(response.body);
-  }
-
-  getCountriesDataOrder(List l) async {
-    http.Response response =
-        await http.get('https://corona.lmao.ninja/countries');
-    widget.countriesData = json.decode(response.body);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,18 +26,6 @@ class _AllCountriesState extends State<AllCountries> {
                   context: context, delegate: Search(widget.countriesData));
             },
           ),
-          // IconButton(
-          //   icon: Icon(Icons.sort, size: 35.0, color: Colors.white38),
-          //   onPressed: () {
-          //     byOrder = !byOrder;
-          //     if (byOrder) {
-          //       getCountriesDataOrder(widget.countriesData);
-          //     } else {
-          //       getCountriesDataByCases(widget.countriesData);
-          //     }
-          //     setState(() {});
-          //   },
-          // ),
         ],
       ),
       body: widget.countriesData == null
@@ -90,8 +65,8 @@ class _AllCountriesState extends State<AllCountries> {
                             Image.network(
                               widget.countriesData[index]['countryInfo']
                                   ['flag'],
-                              height: 50.0,
-                              width: 60.0,
+                              height: 90.0,
+                              width: 70.0,
                             ),
                           ],
                         ),
@@ -132,6 +107,30 @@ class _AllCountriesState extends State<AllCountries> {
                                       Brightness.light
                                   ? Colors.grey[800]
                                   : Colors.grey[100],
+                            ),
+                          ),
+                          SizedBox(height: 5.0),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 50.0,right: 50),
+                            child: Divider(height: 1.0,color: Colors.green),
+                          ),
+                          SizedBox(height: 5.0),
+                          Text(
+                            "TODAY CASES : " +
+                                widget.countriesData[index]['todayCases']
+                                    .toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.greenAccent,
+                            ),
+                          ),
+                          Text(
+                            "TODAY DEATHS : " +
+                                widget.countriesData[index]['todayDeaths']
+                                    .toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.redAccent,
                             ),
                           ),
                         ],

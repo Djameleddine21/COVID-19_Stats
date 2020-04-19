@@ -2,6 +2,7 @@ import 'package:covid_19/datasource.dart';
 import 'package:covid_19/screens/home.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(Covid19App());
 
