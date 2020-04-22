@@ -37,7 +37,7 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Todat Deaths : " +
+                  "Today Deaths : " +
                       countriesData[2]["todayDeaths"].toString(),
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
@@ -72,7 +72,7 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Todat Deaths : " +
+                  "Today Deaths : " +
                       countriesData[42]["todayDeaths"].toString(),
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
@@ -107,7 +107,7 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Todat Deaths : " +
+                  "Today Deaths : " +
                       countriesData[99]["todayDeaths"].toString(),
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
@@ -142,7 +142,7 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Todat Deaths : " +
+                  "Today Deaths : " +
                       countriesData[201]["todayDeaths"].toString(),
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
@@ -177,7 +177,7 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Todat Deaths : " +
+                  "Today Deaths : " +
                       countriesData[69]["todayDeaths"].toString(),
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
