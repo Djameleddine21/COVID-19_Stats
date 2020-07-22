@@ -5,8 +5,25 @@ class MostAffected extends StatelessWidget {
 
   const MostAffected({Key key, this.countriesData}) : super(key: key);
 
+  List<int> getIndexes() {
+    List<int> indexes = <int>[];
+    int index = 0;
+    for (var item in countriesData) {
+      if (item["country"] == "Algeria" ||
+          item["country"] == "USA" ||
+          item["country"] == "China" ||
+          item["country"] == "France" ||
+          item["country"] == "Italy") {
+        indexes.add(index);
+      }
+      index++;
+    }
+    return indexes;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final indexes = getIndexes();
     return Container(
       child: Column(
         children: <Widget>[
@@ -14,18 +31,17 @@ class MostAffected extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Row(
               children: <Widget>[
-                Image.network(countriesData[2]["countryInfo"]["flag"],
+                Image.network(countriesData[indexes[0]]["countryInfo"]["flag"],
                     height: 30.0, width: 30.0),
                 SizedBox(width: 10.0),
                 Text(
-                  countriesData[2]["country"],
+                  countriesData[indexes[0]]["country"],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "Deaths: " + countriesData[2]["deaths"].toString(),
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  "Deaths: " + countriesData[indexes[0]]["deaths"].toString(),
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 5.0),
                 Container(
@@ -37,10 +53,8 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Today Deaths : " +
-                      countriesData[2]["todayDeaths"].toString(),
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  "Today Deaths : " + countriesData[indexes[0]]["todayDeaths"].toString(),
+                  style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -49,18 +63,17 @@ class MostAffected extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Row(
               children: <Widget>[
-                Image.network(countriesData[42]["countryInfo"]["flag"],
+                Image.network(countriesData[indexes[1]]["countryInfo"]["flag"],
                     height: 30.0, width: 30.0),
                 SizedBox(width: 10.0),
                 Text(
-                  countriesData[42]["country"],
+                  countriesData[indexes[1]]["country"],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "Deaths: " + countriesData[42]["deaths"].toString(),
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  "Deaths: " + countriesData[indexes[1]]["deaths"].toString(),
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 5.0),
                 Container(
@@ -72,10 +85,8 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Today Deaths : " +
-                      countriesData[42]["todayDeaths"].toString(),
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  "Today Deaths : " + countriesData[indexes[1]]["todayDeaths"].toString(),
+                  style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -84,18 +95,17 @@ class MostAffected extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Row(
               children: <Widget>[
-                Image.network(countriesData[99]["countryInfo"]["flag"],
+                Image.network(countriesData[indexes[2]]["countryInfo"]["flag"],
                     height: 30.0, width: 30.0),
                 SizedBox(width: 10.0),
                 Text(
-                  countriesData[99]["country"],
+                  countriesData[indexes[2]]["country"],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "Deaths: " + countriesData[99]["deaths"].toString(),
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  "Deaths: " + countriesData[indexes[2]]["deaths"].toString(),
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 5.0),
                 Container(
@@ -107,10 +117,8 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Today Deaths : " +
-                      countriesData[99]["todayDeaths"].toString(),
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  "Today Deaths : " + countriesData[indexes[2]]["todayDeaths"].toString(),
+                  style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -119,18 +127,17 @@ class MostAffected extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Row(
               children: <Widget>[
-                Image.network(countriesData[201]["countryInfo"]["flag"],
+                Image.network(countriesData[indexes[3]]["countryInfo"]["flag"],
                     height: 30.0, width: 30.0),
                 SizedBox(width: 10.0),
                 Text(
-                  countriesData[201]["country"],
+                  countriesData[indexes[3]]["country"],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "Deaths: " + countriesData[201]["deaths"].toString(),
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  "Deaths: " + countriesData[indexes[3]]["deaths"].toString(),
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 5.0),
                 Container(
@@ -142,10 +149,8 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Today Deaths : " +
-                      countriesData[201]["todayDeaths"].toString(),
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  "Today Deaths : " + countriesData[indexes[3]]["todayDeaths"].toString(),
+                  style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -154,18 +159,17 @@ class MostAffected extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Row(
               children: <Widget>[
-                Image.network(countriesData[69]["countryInfo"]["flag"],
+                Image.network(countriesData[indexes[4]]["countryInfo"]["flag"],
                     height: 30.0, width: 30.0),
                 SizedBox(width: 10.0),
                 Text(
-                  countriesData[69]["country"],
+                  countriesData[indexes[4]]["country"],
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 10.0),
                 Text(
-                  "Deaths: " + countriesData[69]["deaths"].toString(),
-                  style:
-                      TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                  "Deaths: " + countriesData[indexes[4]]["deaths"].toString(),
+                  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(width: 5.0),
                 Container(
@@ -177,10 +181,8 @@ class MostAffected extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  "Today Deaths : " +
-                      countriesData[69]["todayDeaths"].toString(),
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  "Today Deaths : " + countriesData[indexes[4]]["todayDeaths"].toString(),
+                  style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

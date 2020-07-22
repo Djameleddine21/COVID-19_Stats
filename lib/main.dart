@@ -25,7 +25,7 @@ class Covid19App extends StatelessWidget {
             hintStyle: TextStyle(color:Colors.white),
           ),
           textTheme: TextTheme(
-            title: TextStyle(color: Colors.white),
+            headline6: TextStyle(color: Colors.white),
           ),
         );
       },

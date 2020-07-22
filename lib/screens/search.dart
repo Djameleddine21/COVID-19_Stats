@@ -1,4 +1,3 @@
-import 'package:covid_19/datasource.dart';
 import 'package:flutter/material.dart';
 
 class Search extends SearchDelegate {
