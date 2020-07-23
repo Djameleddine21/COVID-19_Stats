@@ -25,11 +25,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   getCountriesData() async {
-    http.Response response =
-        await http.get('https://corona.lmao.ninja/v2/countries');
-    setState(() {
-      countriesData = json.decode(response.body);
-    });
+    http.Response response = await http.get('https://corona.lmao.ninja/v2/countries');
+    List list = [];
+    final body = json.decode(response.body);
+    for (var item in body) {
+      if (item['country'] != "Israel") {
+        list.add(item);
+      }
+    }
+    setState(() => countriesData = list);
   }
 
   @override
@@ -78,8 +82,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -104,7 +107,9 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.grey[800],
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? primaryBlack
+                            : Colors.grey[800],
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Text(
@@ -127,8 +132,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 15.0, vertical: 5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
                   child: Text(
                     "Affected Countries",
                     style: TextStyle(
@@ -152,7 +156,9 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(10.0),
                     margin: EdgeInsets.only(right: 10.0),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.grey[800],
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? primaryBlack
+                          : Colors.grey[800],
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Text(
@@ -178,7 +184,9 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 "WE ARE TOGETHER IN THE FIGHT",
                 style: TextStyle(
-                  color: Theme.of(context).brightness==Brightness.light ? primaryBlack : Colors.white70,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? primaryBlack
+                      : Colors.white70,
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
                 ),
